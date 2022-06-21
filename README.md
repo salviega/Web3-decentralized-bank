@@ -1,27 +1,78 @@
-# DecentralizedBank
+# Web3: Decentralized Bank
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.5.
+Crea un proyecto Angular
+---
+```
+ng new <name project>
+```
+Instala las dependencias
+---
+```
+npm install --save-dev hardhat chai dotenv @nomiclabs/hardhat-waffle 'ethereum-waffle@^3.0.0' @nomiclabs/hardhat-ethers 'ethers@^5.0.0'
+```
+Empieza un proyecto hardhat
+---
+```
+npx hardhat 
+```
+en `What do you want to do?` selecciona `Create an empty hardhat.config.js`
 
-## Development server
+Adiciona estas configuraciones en el archivo tsconfig.json
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+```
+compilerOptions {
+    ...
+    "resolveJsonModule": true, 
+    "esModuleInterop": true
+}
 
-## Code scaffolding
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Trae el contrato ERC-20 
+---
 
-## Build
+```
+npm install @openzeppelin/contracts
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Y configura el archivo hardhat.config.js
+---
 
-## Running unit tests
+````
+require("@nomiclabs/hardhat-waffle");
+require('dotenv').config()
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+/**
+ * @type import('hardhat/config').HardhatUserConfig
+ */
 
-## Running end-to-end tests
+module.exports = {
+  paths: { //se enrutan las fuentes del blockchain
+    sources: "./blockchain/contracts",
+    tests: "./blockchain/test",
+    cache: "./blockchain/cache",
+    artifacts: "./blockchain/artifacts"
+  },
+  defaultNetwork: "kovan",
+    networks: {
+      hardhat: {
+        // If want to do some forking, uncomment this
+        // forking: {
+        //  url: MAINNET_RPC_URL
+        // }
+      },
+      localhost: {
+      },
+      kovan: {
+        url: process.env.KOVAN_RPC_URL,
+        accounts: [process.env.PRIVATE_KEY],
+        saveDeployments: true,
+      }
+    },
+  solidity: "0.8.15",
+  
+};
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

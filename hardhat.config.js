@@ -23,8 +23,8 @@ module.exports = {
       localhost: {
       },
       kovan: {
-        url: "https://kovan.infura.io/v3/7636358c25c44a9499f8a847bc587d68",
-        accounts: ["2679a9a0ee4b9195de51f042f0bf885b4f299a9ddcd54b5100910452984d23ca"],
+        url: process.env.KOVAN_RPC_URL,
+        accounts: [process.env.PRIVATE_KEY],
         saveDeployments: true,
       }
     },
