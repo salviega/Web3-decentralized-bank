@@ -42,6 +42,7 @@ Y configura el archivo hardhat.config.js
 
 ````
 require("@nomiclabs/hardhat-waffle");
+const secrets = require("./environment/secrets.json");
 
 /**
  * @type import('hardhat/config').HardhatUserConfig
@@ -65,13 +66,12 @@ module.exports = {
       localhost: {
       },
       kovan: {
-        url: process.env.KOVAN_RPC_URL,
-        accounts: [process.env.PRIVATE_KEY],
+        url: secrets.KOVAN_RPC_URL,
+        accounts: [secrets.PRIVATE_KEY],
         saveDeployments: true,
       }
     },
   solidity: "0.8.15",
   
 };
-
-
+````
