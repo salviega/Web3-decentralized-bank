@@ -24,7 +24,8 @@ Adiciona estas configuraciones en el archivo tsconfig.json
 compilerOptions {
     ...
     "resolveJsonModule": true, 
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "strictPropertyInitialization": false
 }
 
 ```
