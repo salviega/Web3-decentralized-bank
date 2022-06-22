@@ -42,7 +42,6 @@ Y configura el archivo hardhat.config.js
 
 ````
 require("@nomiclabs/hardhat-waffle");
-require('dotenv').config()
 
 /**
  * @type import('hardhat/config').HardhatUserConfig
