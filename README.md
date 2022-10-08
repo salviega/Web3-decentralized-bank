@@ -34,7 +34,7 @@ Trae el contrato ERC-20
 ---
 
 ```
-npm install @openzeppelin/contracts
+npm install @openzeppelin/contracts @chainlink/contracts
 ```
 
 Y configura el archivo hardhat.config.js
