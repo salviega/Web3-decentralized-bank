@@ -8,7 +8,7 @@ ng new <name project>
 Instala las dependencias
 ---
 ```
-npm install --save-dev hardhat @nomiclabs/hardhat-etherscan @nomiclabs/hardhat-waffle ethereum-waffle chai @nomiclabs/hardhat-ethers ethers dotenv standard
+npm install --save-dev hardhat @nomiclabs/hardhat-etherscan @nomiclabs/hardhat-waffle ethereum-waffle chai @nomiclabs/hardhat-ethers ethers dotenv standard sass
 ```
 Empieza un proyecto hardhat
 ---
